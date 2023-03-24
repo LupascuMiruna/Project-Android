@@ -21,6 +21,38 @@ public class HomeActivity extends AppCompatActivity {
         String username = sharedPreferences.getString("username", "").toString();
         Toast.makeText(getApplicationContext(), "Welcome " + username, Toast.LENGTH_SHORT).show();
 
+        CardView buyMedicie = findViewById(R.id.cardBuyMedicine);
+        buyMedicie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // toDo
+            }
+        });
+
+        CardView findDoctor = findViewById(R.id.cardFindDoctor);
+        findDoctor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, FindDoctorActivity.class));
+            }
+        });
+
+        CardView healthArticles = findViewById(R.id.cardHealthArticles);
+        healthArticles.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // toDo
+            }
+        });
+
+        CardView order = findViewById(R.id.cardOrder);
+        order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // toDo
+            }
+        });
+
         CardView exit = findViewById(R.id.cardExit);
         exit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,13 +61,6 @@ public class HomeActivity extends AppCompatActivity {
                 editor.clear();
                 editor.apply();
                 startActivity(new Intent(HomeActivity.this, LoginActivity.class));
-            }
-        });
-        CardView findDoctor = findViewById(R.id.cardFindDoctor);
-        findDoctor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(HomeActivity.this, FindDoctorActivity.class));
             }
         });
 
