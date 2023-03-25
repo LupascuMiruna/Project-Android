@@ -19,6 +19,7 @@ public class HomeActivity extends AppCompatActivity {
 
         SharedPreferences sharedPreferences = getSharedPreferences("shared_prefs", Context.MODE_PRIVATE);
         String username = sharedPreferences.getString("username", "").toString();
+
         Toast.makeText(getApplicationContext(), "Welcome " + username, Toast.LENGTH_SHORT).show();
 
         CardView buyMedicie = findViewById(R.id.cardBuyMedicine);
