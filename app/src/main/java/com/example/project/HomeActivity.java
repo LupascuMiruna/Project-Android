@@ -26,7 +26,7 @@ public class HomeActivity extends AppCompatActivity {
         buyMedicie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // toDo
+                startActivity(new Intent(HomeActivity.this, BuyMedicineActivity.class));
             }
         });
 
@@ -50,7 +50,7 @@ public class HomeActivity extends AppCompatActivity {
         order.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // toDo
+                startActivity(new Intent(HomeActivity.this, OrderActivity.class));
             }
         });
 
