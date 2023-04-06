@@ -22,6 +22,14 @@ public class HomeActivity extends AppCompatActivity {
 
         Toast.makeText(getApplicationContext(), "Welcome " + username, Toast.LENGTH_SHORT).show();
 
+        CardView makeAppointment = findViewById(R.id.cardAppointment);
+        makeAppointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(HomeActivity.this, CallActivity.class));
+            }
+        });
+
         CardView buyMedicie = findViewById(R.id.cardBuyMedicine);
         buyMedicie.setOnClickListener(new View.OnClickListener() {
             @Override
