@@ -5,20 +5,34 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".OrderActivity">
+
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         android:id="@+id/imageView"
-        android:layout_centerInParent="true"/>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <Button
+        android:id="@+id/btnUploadGallery"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnUploadGallery"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginBottom="326dp"
         android:text="Load receipt from Gallery"
         android:textAllCaps="false"
-        android:textSize="12dp"/>
+        android:textSize="12dp" />
+
+    <Button
+        android:id="@+id/btnBackGallery"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="323dp"
+        android:layout_marginBottom="29dp"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:textSize="12dp" />
 
 
 </RelativeLayout>

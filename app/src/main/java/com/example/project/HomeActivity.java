@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
 
-        CardView buyMedicie = findViewById(R.id.cardBuyMedicine);
+        CardView buyMedicie = findViewById(R.id.cardVideo);
         buyMedicie.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

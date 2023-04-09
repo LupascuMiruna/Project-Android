@@ -2,7 +2,10 @@ package com.example.project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 
 import com.azure.android.communication.common.CommunicationTokenCredential;
@@ -27,6 +30,14 @@ public class CallActivity extends AppCompatActivity {
 
         startButton.setOnClickListener(l -> {
             startCallComposite();
+        });
+        Button btnBackCall = findViewById(R.id.btnBackCall);
+        btnBackCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent( CallActivity.this, HomeActivity.class));
+
+            }
         });
     }
 
