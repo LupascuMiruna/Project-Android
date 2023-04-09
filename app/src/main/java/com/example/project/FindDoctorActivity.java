@@ -52,26 +52,6 @@ public class FindDoctorActivity extends AppCompatActivity {
             }
         });
 
-        CardView cardiologist = findViewById(R.id.cardFDCardiologist);
-        cardiologist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("title", "Cardiologist");
-                startActivity(intent);
-            }
-        });
-
-        CardView surgeon = findViewById(R.id.cardFDSurgeon);
-        surgeon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FindDoctorActivity.this, DoctorDetailsActivity.class);
-                intent.putExtra("title", "Surgeon");
-                startActivity(intent);
-            }
-        });
-
 
 
 
