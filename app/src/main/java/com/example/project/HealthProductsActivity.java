@@ -8,6 +8,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,6 +25,9 @@ import java.util.List;
 public class HealthProductsActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
+    TextView currentDate;
+    String url;
+
     private RecyclerView.Adapter adapter;
     private List<HealthProductItem> healthProdList;
 
@@ -42,6 +55,32 @@ public class HealthProductsActivity extends AppCompatActivity {
         this.initList();
         setContentView(R.layout.activity_health_products);
 
+        //Server request
+        currentDate = findViewById(R.id.currentDate);
+        url = "https://worldtimeapi.org/api/timezone/Europe/Bucharest";
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+                String datetime = null;
+                try {
+                    datetime = response.getString("datetime");
+                    String date = datetime.split("T")[0];
+                    currentDate.setText(date);
+                } catch (JSONException e) {
+                    throw new RuntimeException(e);
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+            }
+        });
+        Volley.newRequestQueue(this).add(request);
+
+
+        // Recycler view
         recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
