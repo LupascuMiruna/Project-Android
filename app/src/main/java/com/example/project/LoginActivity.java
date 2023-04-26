@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,10 +32,13 @@ public class LoginActivity extends AppCompatActivity {
     TextView register;
     ImageView fbButton;
     CallbackManager callbackManager;
-
+    BroadcastReceiverImpl broadcastReceiver = new BroadcastReceiverImpl();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(broadcastReceiver, filter);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
@@ -106,5 +111,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(broadcastReceiver);
     }
 }
